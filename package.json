@@ -1,0 +1,26 @@
+{
+  "name": "nerual_tic_tac_toe",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe with nerual network AI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "rm -f bundle.js && node node_modules/browserify/bin/cmd src/index.js > bundle.js",
+    "serve:local": "node node_modules/http-server/bin/http-server -p8081",
+    "start": "npm run bundle && npm run serve:local"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheCalebThornton/Nerual_Tic_Tac_Toe.git"
+  },
+  "author": "TheCalebThornton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheCalebThornton/Nerual_Tic_Tac_Toe/issues"
+  },
+  "homepage": "https://github.com/TheCalebThornton/Nerual_Tic_Tac_Toe#readme",
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "http-server": "^0.11.1"
+  }
+}
