@@ -7,8 +7,9 @@ function generateRandomNumber (min, max, decimal) {
 	const rmin = Math.ceil(min);
 	// We add 1 to the max so that floor will still have a chance of selecting 'max' param
 	const rmax = Math.floor(max+1);
-	const boundary = (rmax - rmin) + rmin;
-	const rand = (Math.random() * boundary) + min;
+
+	const boundary = rmax - rmin;
+	const rand = (Math.random() * boundary) + rmin;
 	if (decimal) {
 		return rand;
 	} else {

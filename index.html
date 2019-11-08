@@ -3,7 +3,7 @@
 <head>
 	<meta charset = "UTF-8">
 	<title>Nerual Tic Tac Toe</title>
-	<link rel = "stylesheet" type = "text/css" href = "./styles/index.css" />
+	<link rel = "stylesheet" type = "text/css" href = "./src/styles/index.css" />
 	<script src="bundle.js"></script>
 </head>
 <body>
@@ -12,25 +12,36 @@
 	</div>
 
 	<div id="messageBanner" class="center-message">
-		<h3>Make the first move</h3>
+		<h3>Select how you want to play!</h3>
 	</div>
 
-	<table id="board">
-	<tr>
-		<td id="a1"></td>
-		<td id="a2" class="vert"></td>
-		<td id="a3"></td>
-	</tr>
-	<tr>
-		<td id="b1" class="hori"></td>
-		<td id="b2" class="vert hori"></td>
-		<td id="b3" class="hori"></td>
-	</tr>
-	<tr>
-		<td id="c1"></td>
-		<td id="c2" class="vert"></td>
-		<td id="c3"></td>
-	</tr>
-	</table>
+	<div class="main-content">
+		<ul>
+			<li>
+				<input id="classiclRngBtn" type="button" value="Classical RNG AI"></input>
+			</li>
+			<li>
+				<input id="quantumRngBtn" type="button" value="Quantum RNG AI"></input>
+			</li>
+		</ul>
+
+		<table id="board" class="hide">
+			<tr>
+				<td id="a1"></td>
+				<td id="a2" class="vert"></td>
+				<td id="a3"></td>
+			</tr>
+			<tr>
+				<td id="b1" class="hori"></td>
+				<td id="b2" class="vert hori"></td>
+				<td id="b3" class="hori"></td>
+			</tr>
+			<tr>
+				<td id="c1"></td>
+				<td id="c2" class="vert"></td>
+				<td id="c3"></td>
+			</tr>
+			</table>
+	</div>
 </body>
 </html>

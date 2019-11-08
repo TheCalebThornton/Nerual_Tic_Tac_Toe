@@ -2,8 +2,21 @@
 	text-align: center;
 }
 
+.main-content {
+	text-align: center;
+}
+
+.main-content ul {
+	display: inline-block;
+	padding: 0;
+}
+
 table#board {
 	margin: 5px auto;
+}
+
+.hide {
+	display: none !important;
 }
 
 table#board td {
