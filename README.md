@@ -3,9 +3,9 @@ Play against a neural network in Tic Tac Toe!
 
 
 # TODO
-- Create a Tic Tac Toe AI using Quantum RNG movements (look at Austrailian Uni API)
 - Design neural network to train AI based on pre-determined optimal board states (similar to chess AI).
 - Design nerual netowrk to predict a user's movements after playing a few games with the user.
+- Setup an interactive 'wizard' flow that allows the user to train the AI and the play against their creation.
 
 # Get started:
 Start with the following commands:  

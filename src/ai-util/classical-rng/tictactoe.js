@@ -6,7 +6,7 @@ function selectAMoveFromList (potentialMoves) {
 }
 
 function makeAMove (board) {
-	const potentialMoves = Object.keys(board).filter(key => board[key] === "");;
+	const potentialMoves = Object.keys(board).filter(key => board[key] === "");
 	return selectAMoveFromList(potentialMoves);
 }
 
