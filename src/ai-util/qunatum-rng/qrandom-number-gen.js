@@ -3,9 +3,12 @@ const classicalRngAi = require("../classical-rng/random-number-gen.js");
 const ANU_CONSTANT = {
 	dataType: "unit8",
 	length: 1,
+	size: 6, // arbitrary val to satisfy API
 	maxVal: 255,
 	minVal: 0
 }
+
+const ANU_URL = `http://qrng.anu.edu.au/API/jsonI.php?length=${ANU_CONSTANT.length}&type=${ANU_CONSTANT.dataType}&size=${ANU_CONSTANT.size}`;
 
 function fallbackOnClassical (min, max, decimal) {
 	return classicalRngAi.generateRandomNumber(min, max, decimal);
@@ -19,7 +22,7 @@ function fallbackOnClassical (min, max, decimal) {
  */
 function fetchQNumber (min, max, callback, decimal) {
 	// This is hosted by the Austrailian National University; It often doesnt work...
-	const resp = fetch(`https://qrng.anu.edu.au/API/jsonI.php?length=${ANU_CONSTANT.length}&type=${ANU_CONSTANT.dataType}`);
+	const resp = fetch(`${ANU_URL}&time=${+ new Date}`);
 	resp.then(respBody => {
 		if (!respBody.success) {
 			console.log("qrandom API responded with unsuccessful. Falling back on Classical RNG.");

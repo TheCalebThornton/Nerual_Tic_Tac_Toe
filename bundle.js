@@ -45,9 +45,12 @@ const classicalRngAi = require("../classical-rng/random-number-gen.js");
 const ANU_CONSTANT = {
 	dataType: "unit8",
 	length: 1,
+	size: 6, // arbitrary val to satisfy API
 	maxVal: 255,
 	minVal: 0
 }
+
+const ANU_URL = `http://qrng.anu.edu.au/API/jsonI.php?length=${ANU_CONSTANT.length}&type=${ANU_CONSTANT.dataType}&size=${ANU_CONSTANT.size}`;
 
 function fallbackOnClassical (min, max, decimal) {
 	return classicalRngAi.generateRandomNumber(min, max, decimal);
@@ -60,7 +63,8 @@ function fallbackOnClassical (min, max, decimal) {
  * @param {Boolean} decimal use this flag to return decimal response instead of integer (defaulted to false)
  */
 function fetchQNumber (min, max, callback, decimal) {
-	const resp = fetch(`https://qrng.anu.edu.au/API/jsonI.php?length=${ANU_CONSTANT.length}&type=${ANU_CONSTANT.dataType}`);
+	// This is hosted by the Austrailian National University; It often doesnt work...
+	const resp = fetch(`${ANU_URL}&time=${+ new Date}`);
 	resp.then(respBody => {
 		if (!respBody.success) {
 			console.log("qrandom API responded with unsuccessful. Falling back on Classical RNG.");
@@ -73,7 +77,7 @@ function fetchQNumber (min, max, callback, decimal) {
 	
 		const boundary = rmax - rmin;
 		const rand = ((qrandomNum / ANU_CONSTANT.maxVal) * boundary) + rmin;
-		console.log("Success: " + rand);
+		console.log("Successful call to ANU: " + rand);
 
 		rand = decimal ? rand : Math.floor(rand);
 		callback(rand);
